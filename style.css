@@ -18,13 +18,6 @@ body {
     align-items: center;
 }
 
-.flex-column {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
 .flex-space-between {
     display: flex;
     justify-content: space-between;
