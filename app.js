@@ -39,9 +39,11 @@ const addTodo = () => {
         const errorMessage = document.querySelector(".error-message");
         errorMessage.classList.add("active");
 
-        setInterval(() => {
+        const duration = setInterval(() => {
             errorMessage.classList.remove("active");
+            clearInterval(duration);
         }, 2000);
+
     }
 };
 
@@ -83,18 +85,14 @@ const deleteItem = (trashBtn) => {
 //LocalStorage
 const saveTodos = (todo) => {
     let todos;
-    localStorage.getItem("todos")
-        ? (todos = JSON.parse(localStorage.getItem("todos")))
-        : (todos = []);
+    localStorage.getItem("todos") ? (todos = JSON.parse(localStorage.getItem("todos"))) : (todos = []);
     todos.push(todo);
     localStorage.setItem("todos", JSON.stringify(todos));
 };
 
 const removeLocalTodo = (todo) => {
     let todos;
-    localStorage.getItem("todos")
-        ? (todos = JSON.parse(localStorage.getItem("todos")))
-        : (todos = []);
+    localStorage.getItem("todos") ? (todos = JSON.parse(localStorage.getItem("todos"))) : (todos = []);
 
     const todoIndex = todo.children[0].innerText;
 
@@ -104,9 +102,7 @@ const removeLocalTodo = (todo) => {
 
 const initTodos = () => {
     let todos;
-    localStorage.getItem("todos")
-        ? (todos = JSON.parse(localStorage.getItem("todos")))
-        : (todos = []);
+    localStorage.getItem("todos") ? (todos = JSON.parse(localStorage.getItem("todos"))) : (todos = []);
 
     todos.forEach((item) => {
         const todoItem = document.createElement("li");
